@@ -3,34 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
-
+    app:startDestination="@id/allTasksFragment">
     <fragment
-        android:id="@+id/FirstFragment"
+        android:id="@+id/allTasksFragment"
         android:name="dev.robert.taskify.ui.fragments.AllTasksFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_all_tasks">
-
+        android:label="fragment_all_tasks"
+        tools:layout="@layout/fragment_all_tasks" >
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
-        <action
-            android:id="@+id/action_FirstFragment_to_itemListDialogFragment"
-            app:destination="@id/itemListDialogFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/SecondFragment"
-        android:name="dev.robert.taskify.ui.fragments.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
-
-        <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/action_allTasksFragment_to_addTaskFragment"
+            app:destination="@id/addTaskFragment" />
     </fragment>
     <dialog
-        android:id="@+id/itemListDialogFragment"
-        android:name="dev.robert.taskify.ItemListDialogFragment"
-        android:label="fragment_item_list_dialog_list_dialog"
-        tools:layout="@layout/fragment_add_task" />
+        android:id="@+id/addTaskFragment"
+        android:name="dev.robert.taskify.ui.fragments.AddTaskFragment"
+        android:label="AddTaskFragment" />
 </navigation>

@@ -14,11 +14,12 @@ class TasksViewModel @Inject constructor(
     private val repository: TasksRepository
 ) : ViewModel() {
     fun getAllTasks() = repository.getTasks()
-    suspend fun insertTask(task: Task) = CoroutineScope(Dispatchers.Main).launch {
+
+     fun insertTask(task: Task) = CoroutineScope(Dispatchers.Main).launch {
         repository.insertTask(task)
     }
 
-    suspend fun deleteTask(task: Task) = CoroutineScope(Dispatchers.Main).launch {
+     fun deleteTask(task: Task) = CoroutineScope(Dispatchers.Main).launch {
         repository.deleteTask(task)
     }
 }

@@ -3,14 +3,24 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidStudioProjects/Taskify/app/src/main/res/drawable/ic_add.xml" value="0.163" />
+        <entry key="..\:/AndroidStudioProjects/Taskify/app/src/main/res/drawable/ic_checked_success.xml" value="0.165" />
+        <entry key="..\:/AndroidStudioProjects/Taskify/app/src/main/res/drawable/ic_more.xml" value="0.163" />
+        <entry key="..\:/AndroidStudioProjects/Taskify/app/src/main/res/drawable/ic_tasks.xml" value="0.163" />
+        <entry key="..\:/AndroidStudioProjects/Taskify/app/src/main/res/drawable/tv_background.xml" value="0.163" />
         <entry key="..\:/AndroidStudioProjects/Taskify/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/AndroidStudioProjects/Taskify/app/src/main/res/layout/activity_splash.xml" value="0.2" />
+        <entry key="..\:/AndroidStudioProjects/Taskify/app/src/main/res/layout/completed_dialog.xml" value="0.2" />
         <entry key="..\:/AndroidStudioProjects/Taskify/app/src/main/res/layout/content_main.xml" value="0.2" />
-        <entry key="..\:/AndroidStudioProjects/Taskify/app/src/main/res/layout/fragment_all_tasks.xml" value="0.2" />
+        <entry key="..\:/AndroidStudioProjects/Taskify/app/src/main/res/layout/fragment_add_task.xml" value="0.22" />
+        <entry key="..\:/AndroidStudioProjects/Taskify/app/src/main/res/layout/fragment_all_tasks.xml" value="0.25" />
         <entry key="..\:/AndroidStudioProjects/Taskify/app/src/main/res/layout/fragment_first.xml" value="0.2" />
         <entry key="..\:/AndroidStudioProjects/Taskify/app/src/main/res/layout/fragment_item_list_dialog_list_dialog.xml" value="0.2" />
         <entry key="..\:/AndroidStudioProjects/Taskify/app/src/main/res/layout/fragment_item_list_dialog_list_dialog_item.xml" value="0.2" />
         <entry key="..\:/AndroidStudioProjects/Taskify/app/src/main/res/layout/fragment_second.xml" value="0.25" />
+        <entry key="..\:/AndroidStudioProjects/Taskify/app/src/main/res/layout/task_card.xml" value="0.33" />
         <entry key="..\:/AndroidStudioProjects/Taskify/app/src/main/res/menu/menu_main.xml" value="0.2" />
+        <entry key="..\:/AndroidStudioProjects/Taskify/app/src/main/res/menu/options_menu.xml" value="0.2" />
       </map>
     </option>
   </component>

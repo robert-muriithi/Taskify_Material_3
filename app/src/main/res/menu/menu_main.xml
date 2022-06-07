@@ -3,9 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="dev.robert.taskify.ui.activity.MainActivity">
 
-    <item android:id="@+id/action_favorites"
+    <item android:id="@+id/action_completed_tasks"
         android:orderInCategory="100"
-        android:title="@string/action_favorites"
+        android:title="@string/completed_tasks"
         app:showAsAction="never" />
 
     <item
@@ -13,5 +13,10 @@
         android:orderInCategory="100"
         android:title="@string/action_settings"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/action_about"
+        android:orderInCategory="100"
+        android:title="@string/about"
+        app:showAsAction="never"/>
 
 </menu>
