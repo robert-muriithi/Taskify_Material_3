@@ -12,5 +12,6 @@
     <item
         android:id="@+id/completed"
         android:title="Completed"
-        app:showAsAction="never" />
+        app:showAsAction="never"
+        android:enabled="false"/>
 </menu>

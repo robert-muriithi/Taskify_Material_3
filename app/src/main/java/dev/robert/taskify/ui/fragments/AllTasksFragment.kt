@@ -1,11 +1,13 @@
 package dev.robert.taskify.ui.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import dev.robert.taskify.R
 import dev.robert.taskify.adapter.TasksAdapter
@@ -18,6 +20,7 @@ import dev.robert.taskify.viewmodel.TasksViewModel
  */
 @AndroidEntryPoint
 class AllTasksFragment : Fragment() {
+    private val TAG = "AllTasksFragment"
     private lateinit var binding: FragmentAllTasksBinding
     private val viewModel : TasksViewModel by viewModels()
     private val adapter : TasksAdapter by lazy { TasksAdapter(viewModel) }
@@ -27,7 +30,6 @@ class AllTasksFragment : Fragment() {
     ): View? {
         binding = FragmentAllTasksBinding.inflate(inflater, container, false)
         val view = binding.root
-        setHasOptionsMenu(true)
 
         binding.fab.setOnClickListener {
             findNavController().navigate(R.id.action_allTasksFragment_to_addTaskFragment)
@@ -41,27 +43,39 @@ class AllTasksFragment : Fragment() {
         return view
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-       inflater.inflate(R.menu.menu_main, menu)
-        return super.onCreateOptionsMenu(menu, inflater)
+        super.onCreateOptionsMenu(menu, inflater)
+         inflater.inflate(R.menu.menu_main, menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when(item.itemId){
-            R.id.action_settings -> {
-                Toast.makeText(requireContext(), "Settings", Toast.LENGTH_SHORT).show()
+            R.id.action_dark_mode -> {
+                Snackbar.make(
+                    binding.root,
+                    "Dark mode is not implemented yet",
+                    Snackbar.LENGTH_LONG
+                ).show()
+                Log.d(TAG, "onOptionsItemSelected: Dark mode is not implemented yet")
                 true
             }
-            R.id.action_completed_tasks -> {
-                Toast.makeText(requireContext(), "Completed tasks", Toast.LENGTH_SHORT).show()
+            R.id.action_about ->{
+                Snackbar.make(
+                    binding.root,
+                    "About is not implemented yet",
+                    Snackbar.LENGTH_LONG
+                ).show()
                 true
             }
-            R.id.action_about -> {
-                Toast.makeText(requireContext(), "About", Toast.LENGTH_SHORT).show()
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
-            }
+
+            else ->  super.onOptionsItemSelected(item)
+        }
+
     }
+
 }

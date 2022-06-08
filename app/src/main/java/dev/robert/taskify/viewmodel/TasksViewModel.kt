@@ -22,4 +22,8 @@ class TasksViewModel @Inject constructor(
      fun deleteTask(task: Task) = CoroutineScope(Dispatchers.Main).launch {
         repository.deleteTask(task)
     }
+
+    fun updateTask(task: Task) = CoroutineScope(Dispatchers.Main).launch {
+        repository.updateTask(task)
+    }
 }

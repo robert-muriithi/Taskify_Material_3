@@ -1,24 +1,22 @@
 package dev.robert.taskify.ui.fragments
 
+import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.os.Bundle
 import android.text.Editable
-import android.text.format.Time
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
+import android.view.View.OnTouchListener
 import android.view.ViewGroup
+import android.widget.DatePicker
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import dagger.hilt.android.AndroidEntryPoint
 import dev.robert.taskify.data.Task
 import dev.robert.taskify.databinding.FragmentAddTaskBinding
 import dev.robert.taskify.viewmodel.TasksViewModel
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -28,7 +26,12 @@ class AddTaskFragment : BottomSheetDialogFragment() {
     private lateinit var binding: FragmentAddTaskBinding
     private val viewModel: TasksViewModel by viewModels()
     private val status = "UPCOMING"
-    private val calender = Calendar.getInstance()
+    private var calender = Calendar.getInstance()
+    var mYear = 0
+    var mMonth :Int = 0
+    var mDay: Int = 0
+    var datePickerDialog: DatePickerDialog? = null
+    @SuppressLint("ClickableViewAccessibility")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -55,23 +58,21 @@ class AddTaskFragment : BottomSheetDialogFragment() {
         }
 
         binding.taskDate.setOnClickListener {
-            val datePickerDialog = DatePickerDialog(
-                requireContext(),
-                DatePickerDialog.OnDateSetListener { _, year, month, dayOfMonth ->
-                    calender.set(Calendar.YEAR, year)
-                    calender.set(Calendar.MONTH, month)
-                    calender.set(Calendar.DAY_OF_MONTH, dayOfMonth)
-                    val myFormat = "MM/dd/yyyy"
-                    val sdf = SimpleDateFormat(myFormat, Locale.US)
-                    binding.taskDate.text = sdf.format(calender.time).toEditable()
+            calender.set(Calendar.YEAR, mYear)
+            calender.set(Calendar.MONTH, mMonth)
+            calender.set(Calendar.DAY_OF_MONTH, mDay)
+            datePickerDialog = DatePickerDialog(
+                activity!!,
+                { _: DatePicker?, year , monthOfYear , dayOfMonth ->
+                    binding.taskDate.setText(dayOfMonth.toString() + "-" + (monthOfYear + 1) + "-" + year)
+                    datePickerDialog?.dismiss()
                 },
-                calender.get(Calendar.YEAR),
-                calender.get(Calendar.MONTH),
-                calender.get(Calendar.DAY_OF_MONTH)
-
+                mYear,
+                mMonth,
+                mDay
             )
-            datePickerDialog.show()
-            datePickerDialog.datePicker.minDate = System.currentTimeMillis()
+            datePickerDialog!!.datePicker.minDate = System.currentTimeMillis() - 1000
+            datePickerDialog!!.show()
         }
 
         binding.addTask.setOnClickListener {

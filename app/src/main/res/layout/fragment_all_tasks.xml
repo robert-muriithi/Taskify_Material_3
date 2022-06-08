@@ -16,6 +16,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.appbar.AppBarLayout
+            style="@style/CustomToolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
@@ -25,9 +26,17 @@
             <com.google.android.material.appbar.MaterialToolbar
                 android:id = "@+id/toolbar"
                 android:layout_width="match_parent"
-                app:title="All Tasks"
                 app:menu="@menu/menu_main"
-                android:layout_height="?attr/actionBarSize" />
+                android:layout_height="?attr/actionBarSize" >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/all_tasks"
+                    android:fontFamily="monospace"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"/>
+            </com.google.android.material.appbar.MaterialToolbar>
 
         </com.google.android.material.appbar.AppBarLayout>
 

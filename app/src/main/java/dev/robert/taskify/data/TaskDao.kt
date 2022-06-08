@@ -15,7 +15,7 @@ interface TaskDao {
     fun getAllTasks(): LiveData<List<Task>>
 
     @Query("UPDATE tasks_table SET column_title = :title, column_desc = :description, column_date = :date, column_time = :time, column_status = :status, column_event = :event WHERE id = :id")
-    fun updateAnExistingRow(
+    suspend fun updateAnExistingRow(
         id: Int,
         title: String?,
         description: String?,

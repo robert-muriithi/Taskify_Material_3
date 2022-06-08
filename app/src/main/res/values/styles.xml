@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="CustomDialogTheme" parent="Theme.AppCompat.DayNight.Dialog.Alert" />
+    <style name="CustomToolbar" parent="Widget.MaterialComponents.AppBarLayout.Surface"/>
+    <style name="Widget_Material_PopupMenu" parent="Widget.MaterialComponents.PopupMenu"/>
+
+</resources>
