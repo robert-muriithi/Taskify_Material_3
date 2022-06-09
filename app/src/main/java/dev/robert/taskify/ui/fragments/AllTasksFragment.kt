@@ -43,8 +43,8 @@ class AllTasksFragment : Fragment() {
         return view
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         setHasOptionsMenu(true)
     }
 
@@ -54,7 +54,7 @@ class AllTasksFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when(item.itemId){
+         when(item.itemId){
             R.id.action_dark_mode -> {
                 Snackbar.make(
                     binding.root,
@@ -62,7 +62,7 @@ class AllTasksFragment : Fragment() {
                     Snackbar.LENGTH_LONG
                 ).show()
                 Log.d(TAG, "onOptionsItemSelected: Dark mode is not implemented yet")
-                true
+                return true
             }
             R.id.action_about ->{
                 Snackbar.make(
@@ -70,12 +70,12 @@ class AllTasksFragment : Fragment() {
                     "About is not implemented yet",
                     Snackbar.LENGTH_LONG
                 ).show()
-                true
+                return true
             }
 
             else ->  super.onOptionsItemSelected(item)
         }
-
+        return super.onOptionsItemSelected(item)
     }
 
 }

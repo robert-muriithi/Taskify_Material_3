@@ -12,6 +12,7 @@ import android.widget.PopupMenu
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dev.robert.taskify.R
 import dev.robert.taskify.data.Task
 import dev.robert.taskify.databinding.TaskCardBinding
@@ -69,7 +70,7 @@ class TasksAdapter @Inject constructor(private val viewModel: TasksViewModel) : 
         popupMenu.setOnMenuItemClickListener { item: MenuItem ->
             when (item.itemId) {
                 R.id.delete -> {
-                    val dialog = AlertDialog.Builder(view.context, R.style.CustomDialogTheme)
+                    val dialog = MaterialAlertDialogBuilder(view.context)
                         .setTitle("Delete Task")
                         .setMessage("Are you sure you want to delete this task?")
                         .setPositiveButton("Yes") { _, _ ->
@@ -93,7 +94,7 @@ class TasksAdapter @Inject constructor(private val viewModel: TasksViewModel) : 
 
                 }
                 R.id.completed -> {
-                    val dialog = AlertDialog.Builder(view.context, R.style.CustomDialogTheme)
+                    val dialog = MaterialAlertDialogBuilder(view.context)
                         .setTitle("Complete Task")
                         .setMessage("Are you sure you want to complete this task?")
                         .setPositiveButton("Yes") { _, _ ->
