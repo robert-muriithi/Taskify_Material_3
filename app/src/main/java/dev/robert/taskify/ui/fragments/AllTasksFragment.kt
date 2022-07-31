@@ -27,7 +27,7 @@ class AllTasksFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentAllTasksBinding.inflate(inflater, container, false)
         val view = binding.root
 
@@ -42,40 +42,4 @@ class AllTasksFragment : Fragment() {
 
         return view
     }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        setHasOptionsMenu(true)
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
-         inflater.inflate(R.menu.menu_main, menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-         when(item.itemId){
-            R.id.action_dark_mode -> {
-                Snackbar.make(
-                    binding.root,
-                    "Dark mode is not implemented yet",
-                    Snackbar.LENGTH_LONG
-                ).show()
-                Log.d(TAG, "onOptionsItemSelected: Dark mode is not implemented yet")
-                return true
-            }
-            R.id.action_about ->{
-                Snackbar.make(
-                    binding.root,
-                    "About is not implemented yet",
-                    Snackbar.LENGTH_LONG
-                ).show()
-                return true
-            }
-
-            else ->  super.onOptionsItemSelected(item)
-        }
-        return super.onOptionsItemSelected(item)
-    }
-
 }

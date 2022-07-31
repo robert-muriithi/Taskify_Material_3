@@ -42,7 +42,7 @@ class AddTaskFragment : BottomSheetDialogFragment() {
         binding.taskTime.setOnClickListener {
             val dialog = TimePickerDialog(
                 requireContext(),
-                TimePickerDialog.OnTimeSetListener { _, hour, minute ->
+                { _, hour, minute ->
                     calender.set(Calendar.HOUR_OF_DAY, hour)
                     calender.set(Calendar.MINUTE, minute)
                     val myFormat = "HH:mm"

@@ -87,6 +87,7 @@ class TasksAdapter @Inject constructor(private val viewModel: TasksViewModel) : 
                     dialog.show()
                 }
                 R.id.update -> {
+
                     /*val bundle = AddTaskFragment.createBundle(task)
                     val fragment = AddTaskFragment()
                     fragment.arguments = bundle
